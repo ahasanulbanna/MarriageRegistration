@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E455727B-6600-4B45-BAA3-24C540258EA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarriageRegitrar.Models</RootNamespace>
+    <AssemblyName>MarriageRegitrar.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AuditableEntity.cs" />
+    <Compile Include="Common\Entity.cs" />
+    <Compile Include="MarriageRegistrarDbContext.cs" />
+    <Compile Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.cs" />
+    <Compile Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.Designer.cs">
+      <DependentUpon>201810081659116_Migration_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.cs" />
+    <Compile Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.Designer.cs">
+      <DependentUpon>201810081702528_Migration2_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.cs" />
+    <Compile Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.Designer.cs">
+      <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models_BrideGroom\BgWitness.cs" />
+    <Compile Include="Models_Brides\Bride.cs" />
+    <Compile Include="Models_Admin\Admin.cs" />
+    <Compile Include="Models_BrideGroom\Bridegroom.cs" />
+    <Compile Include="Models_Brides\BrWitness.cs" />
+    <Compile Include="Models_Kazi\Kazi.cs" />
+    <Compile Include="Models_NID\NID.cs" />
+    <Compile Include="Models_Shared\MarriageRegistrarModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.resx">
+      <DependentUpon>201810081659116_Migration_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.resx">
+      <DependentUpon>201810081702528_Migration2_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.resx">
+      <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

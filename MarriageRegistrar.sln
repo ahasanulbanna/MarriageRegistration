@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarriageRegistrar.API", "MarriageRegitrar.API\MarriageRegistrar.API.csproj", "{9D10FDC1-DF69-4803-8894-558DF8B185DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarriageRegistrar.Models", "MarriageRegitrar.Models\MarriageRegistrar.Models.csproj", "{E455727B-6600-4B45-BAA3-24C540258EA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarriageRegistrar.Services", "MarriageRegistrar.Services\MarriageRegistrar.Services.csproj", "{2937E7B1-B0DB-437D-9537-5DB8CC0F8DAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarriageRegistrar.Repository", "MarriageRegistrar.Repository\MarriageRegistrar.Repository.csproj", "{FF5A6110-430C-4962-B5C1-4EDC8849DFDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarriageRegistrar.Common", "MarriageRegistrar.Common\MarriageRegistrar.Common.csproj", "{BA6D3ACE-24FC-4035-AB41-03B117318C0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D10FDC1-DF69-4803-8894-558DF8B185DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D10FDC1-DF69-4803-8894-558DF8B185DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D10FDC1-DF69-4803-8894-558DF8B185DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D10FDC1-DF69-4803-8894-558DF8B185DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E455727B-6600-4B45-BAA3-24C540258EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E455727B-6600-4B45-BAA3-24C540258EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E455727B-6600-4B45-BAA3-24C540258EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E455727B-6600-4B45-BAA3-24C540258EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2937E7B1-B0DB-437D-9537-5DB8CC0F8DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2937E7B1-B0DB-437D-9537-5DB8CC0F8DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2937E7B1-B0DB-437D-9537-5DB8CC0F8DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2937E7B1-B0DB-437D-9537-5DB8CC0F8DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF5A6110-430C-4962-B5C1-4EDC8849DFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5A6110-430C-4962-B5C1-4EDC8849DFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF5A6110-430C-4962-B5C1-4EDC8849DFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF5A6110-430C-4962-B5C1-4EDC8849DFDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA6D3ACE-24FC-4035-AB41-03B117318C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA6D3ACE-24FC-4035-AB41-03B117318C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA6D3ACE-24FC-4035-AB41-03B117318C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA6D3ACE-24FC-4035-AB41-03B117318C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94F82DD1-7259-4F79-9472-FC6860090072}
+	EndGlobalSection
+EndGlobal
