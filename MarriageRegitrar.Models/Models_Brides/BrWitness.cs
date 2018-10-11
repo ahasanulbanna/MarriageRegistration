@@ -4,10 +4,9 @@ namespace MarriageRegitrar.Models.Models_Bride
 {
     public class BrWitness : Entity<int>
     {
-        public string BrideName { get; set; }
-        public string BrideNidNumber { get; set; }
-        public string BrideAddress { get; set; }
-        public string BridePhoneNo { get; set; }
-        
+        public string BrWitnessName { get; set; }
+        public string BrWitnessNid { get; set; }
+        public string BrWitnessAddress { get; set; }
+        public string BrWitnessPhoneNo { get; set; }
     }
 }

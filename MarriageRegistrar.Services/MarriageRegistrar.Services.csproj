@@ -71,16 +71,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtoes\MarriageRegistrarDto.cs" />
     <Compile Include="EntityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services_Admin\AdminServices.cs" />
     <Compile Include="Services_Bride\BrideServices.cs" />
     <Compile Include="Services_Kazi\KaziServices.cs" />
     <Compile Include="Services_NID\NidServices.cs" />
+    <Compile Include="Services_Shared\MarriageRegistrarServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services_Bridegroom\" />
-    <Folder Include="Services_Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarriageRegistrar.Common\MarriageRegistrar.Common.csproj">

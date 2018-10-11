@@ -12,6 +12,6 @@ namespace MarriageRegitrar.Models.Models_Kazi
         public string Address { get; set; }
         [ForeignKey("AdminId")]
         public Admin Admin { get; set; }
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using MarriageRegitrar.Models.Common;
 using MarriageRegitrar.Models.Models_Bride;
 using MarriageRegitrar.Models.Models_BrideGroom;
@@ -20,6 +21,8 @@ namespace MarriageRegitrar.Models.Models_Shared
         public  int KaziId { get; set; }
         public string RegistrationNo { get; set; }
         public string Photo { get; set; }
+        public bool CurrentStatus { get; set; }
+        public DateTime MarriageDate { get; set; }
 
     }
 }

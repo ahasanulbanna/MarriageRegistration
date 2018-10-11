@@ -7,6 +7,7 @@ namespace MarriageRegitrar.Models.Models_BrideGroom
     public class Bridegroom : Entity<int>
     {
         public string BridegroomName { get; set; }
+        public string BridegroomNid { get; set; }
         public string BridegroomFName { get; set; }
         public string BridegroomMName { get; set; }
         public string BridegroomAddress { get; set; }
