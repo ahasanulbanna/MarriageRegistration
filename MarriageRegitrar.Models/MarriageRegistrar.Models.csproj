@@ -62,6 +62,14 @@
     <Compile Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.Designer.cs">
       <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.cs" />
+    <Compile Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.Designer.cs">
+      <DependentUpon>201810101431126_Migration4_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.cs" />
+    <Compile Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.Designer.cs">
+      <DependentUpon>201810101449145_Migration5_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models_BrideGroom\BgWitness.cs" />
     <Compile Include="Models_Brides\Bride.cs" />
@@ -86,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.resx">
       <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.resx">
+      <DependentUpon>201810101431126_Migration4_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.resx">
+      <DependentUpon>201810101449145_Migration5_From_Ahasanul_Banna_PC.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

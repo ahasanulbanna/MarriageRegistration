@@ -5,6 +5,7 @@ using MarriageRegitrar.Models.Models_Bride;
 using MarriageRegitrar.Models.Models_BrideGroom;
 using MarriageRegitrar.Models.Models_Brides;
 using MarriageRegitrar.Models.Models_Kazi;
+using MarriageRegitrar.Models.Models_NID;
 using MarriageRegitrar.Models.Models_Shared;
 
 namespace MarriageRegitrar.Models
@@ -44,6 +45,10 @@ namespace MarriageRegitrar.Models
 
         #region Shared DbSet
         public DbSet<Kazi> Kazis { get; set; }
+        #endregion
+
+        #region NID DbSet
+        public DbSet<NID>Nids { get; set; }
         #endregion
     }
 }
