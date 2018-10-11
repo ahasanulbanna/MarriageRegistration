@@ -76,10 +76,10 @@
     <Compile Include="Services_Admin\AdminServices.cs" />
     <Compile Include="Services_Bride\BrideServices.cs" />
     <Compile Include="Services_Kazi\KaziServices.cs" />
+    <Compile Include="Services_NID\NidServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services_Bridegroom\" />
-    <Folder Include="Services_NID\" />
     <Folder Include="Services_Shared\" />
   </ItemGroup>
   <ItemGroup>
