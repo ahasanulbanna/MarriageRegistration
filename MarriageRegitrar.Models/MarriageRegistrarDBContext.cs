@@ -1,12 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using MarriageRegitrar.Models.Models_Admin;
-using MarriageRegitrar.Models.Models_Bride;
-using MarriageRegitrar.Models.Models_BrideGroom;
-using MarriageRegitrar.Models.Models_Brides;
-using MarriageRegitrar.Models.Models_Kazi;
 using MarriageRegitrar.Models.Models_NID;
-using MarriageRegitrar.Models.Models_Shared;
+using MarriageRegitrar.Models.Models;
 
 namespace MarriageRegitrar.Models
 {
@@ -23,32 +18,17 @@ namespace MarriageRegitrar.Models
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
         }
-
-        #region Admin DbSet
+        public DbSet<NID> Nids { get; set; }
         public DbSet<Admin> Admins { get; set; }
-        #endregion
+        public DbSet<Quazi> Quazies { get; set; }
+        public DbSet<Couple> Couples { get; set; }
+        public DbSet<MarriageWitness> MarriageWitnesses { get; set; }
+        public DbSet<Marriage> Marriages { get; set; }
+        public DbSet<Attorney> Attornies { get; set; }
+        public DbSet<Moulovi> Moulovies { get; set; }
+        public DbSet<Divorce> Divorces { get; set; }
+        public DbSet<DivorceWitness> DivorceWitnesses { get; set; }
 
 
-        #region Bride DbSet
-        public DbSet<Bride> Brides { get; set; }
-        public DbSet<BrWitness> BrWitnesses { get; set; }
-        #endregion
-
-        #region Bridegroom DbSet
-        public DbSet<Bridegroom> Bridegrooms { get; set; }
-        public DbSet<BgWitness> BgWitnesses { get; set; }
-        #endregion
-
-        #region Shared DbSet
-        public DbSet<MarriageRegistrarModel> MarriageRegistrars { get; set; }
-        #endregion
-
-        #region Shared DbSet
-        public DbSet<Kazi> Kazis { get; set; }
-        #endregion
-
-        #region NID DbSet
-        public DbSet<NID>Nids { get; set; }
-        #endregion
     }
 }

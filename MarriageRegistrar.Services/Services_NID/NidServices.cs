@@ -23,6 +23,24 @@ namespace MarriageRegistrar.Services.Services_NID
         {
             try
             {
+                var postCode = Convert.ToString(nid.PostCode);
+                var now = nid.DoB;
+                var year =Convert.ToString(now.Year);
+                var month = now.Month.ToString("00");
+                var date = now.Day.ToString("00");
+                var fomat = postCode + year + month + date;
+                var maxId = 0;
+                if (_context.Nids.Any(m =>m.NidNo.StartsWith(fomat)) && _context.Nids.Count()!=0)
+                {
+                    maxId = _context.Nids
+                                .Where(m => m.NidNo.StartsWith(fomat))
+                                .Select(m => m.NidNo.Substring(fomat.Length)).AsEnumerable()
+                                .Select(int.Parse)
+                                .Max()
+                            + 1;
+                }
+                var NidNo =  fomat + (maxId.ToString().PadLeft(7, '0'));
+                nid.NidNo = NidNo;
                 var today = DateTime.Today;
                 var a = (today.Year * 100 + today.Month) * 100 + today.Day;
                 var b = (nid.DoB.Year * 100 + nid.DoB.Month) * 100 + nid.DoB.Day;
@@ -32,7 +50,7 @@ namespace MarriageRegistrar.Services.Services_NID
                     _context.Nids.Add(nid);
                     _context.SaveChanges();
                     Generator.IsReport = "Ok";
-                    Generator.Message = "Data Successfully Add on NID";
+                    Generator.Message = "Mr."+nid.Name+" NID number is "+ NidNo;
                 }
                 else
                 {
@@ -61,5 +79,6 @@ namespace MarriageRegistrar.Services.Services_NID
     public interface INidServices
     {
         JsonResult CreateNid(NID nid);
+        
     }
 }

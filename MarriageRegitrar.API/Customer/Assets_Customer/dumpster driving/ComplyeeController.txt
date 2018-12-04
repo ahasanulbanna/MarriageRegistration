@@ -1,0 +1,536 @@
+﻿thirdEyeApp.controller('employeeController', function ($scope, employeeServices, $q, $filter, $compile,
+                            $timeout, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $state, toastr, $log) {
+    //--------------------------------------------Declaration----------------------------------------
+    $scope.Employee = {};
+    $scope.DoNotTrackSelector = {};
+    $scope.TrackingRestrictions = [];
+    $scope.TrackingDays = [];
+    $scope.ShowEmployeeInformation = true;
+    $scope.ShowTrackingInformation = false;
+    $scope.AtleastOneDateIsSelected = false; //This is needed for validation
+
+    //-------------------------------------------Accordion Setup-------------------------------------
+    $scope.AccordionEmployee = function () {
+        if ($scope.ShowEmployeeInformation == false) {
+            $scope.ShowEmployeeInformation = true;
+        }
+        else if ($scope.ShowEmployeeInformation == true) {
+            $scope.ShowEmployeeInformation = false;
+        }
+        if ($scope.ShowTrackingInformation == true) {
+            $scope.ShowTrackingInformation = false;
+        }
+    }
+    $scope.AccordionTracking = function () {
+        if ($scope.ShowEmployeeInformation == true) {
+            $scope.ShowEmployeeInformation = false;
+        }
+        if ($scope.ShowTrackingInformation == false) {
+            $scope.ShowTrackingInformation = true;
+        }
+        else if ($scope.ShowTrackingInformation == true) {
+            $scope.ShowTrackingInformation = false;
+        }
+    }
+    //------------------------------------------Accordion Setup-------------------------------------
+
+    //------------------------------------------Time Picker--------------------------------------------
+    $scope.TrackingStartTime = new Date();
+    $scope.TrackingEndTime = new Date();
+    console.log("Tracking StartTime");
+    console.log($scope.TrackingStartTime);
+    $scope.hstep = 1;
+    $scope.mstep = 1;
+    $scope.ismeridian = true;
+    //------------------------------------------Time Picker--------------------------------------------
+
+
+    //------------------------------------------Multiple Datepicker------------------------------------
+    $scope.today = moment();
+    $scope.TrackingRestrictionsMultipleDates = [];
+
+    $scope.$watch('TrackingRestrictionsMultipleDates', function (newValue, oldValue) {
+        if (newValue) {
+            console.log('my array changed, new size : ' + newValue.length);
+            console.log($scope.TrackingRestrictionsMultipleDates);
+        }
+    }, true);
+    //------------------------------------------Multiple Datepicker------------------------------------
+
+
+    //------------------------------------------Date range picker--------------------------------------
+    $scope.maxDay = moment().add(1000, 'years');
+    $scope.date = {
+        startDate: null,
+        endDate: null
+    };
+    $scope.opts = {
+        locale: {
+            applyClass: 'btn-green',
+            applyLabel: "Apply",
+            fromLabel: "From",
+            format: "YYYY-MM-DD",
+            toLabel: "To",
+            cancelLabel: 'Cancel',
+            customRangeLabel: 'Custom range',
+            required: false
+        },
+        eventHandlers: {
+            'apply.daterangepicker': function () {
+                //Push date range into Json Array
+                console.log("Date Range Picker Applied");
+                console.log($scope.date);
+                //Count any duplicated element to slice and check whether there is any duplicated date range or not
+                $scope.TotalNumberOfDuplicatedDateRange = 0;
+                for (var i = 0; i < $scope.TrackingRestrictions.length; i++) {
+                    if ($scope.TrackingRestrictions[i].RestrictionEndDate && $scope.TrackingRestrictions[i].RestrictionStartDate != null) {
+                        $scope.TotalNumberOfDuplicatedDateRange++;
+                    }
+                }
+                if ($scope.TrackingRestrictions.length > 0) {
+                    for (var i = 0; i < $scope.TrackingRestrictions.length; i++) {
+                        //If there is a RestrictionEndDate and RestrictionStartDate
+                        if ($scope.TrackingRestrictions[i].RestrictionEndDate != null && $scope.TrackingRestrictions[i].RestrictionStartDate != null) {
+                            var TrackingRestrictionsObj = {
+                                RestrictionStartDate: moment($scope.date.startDate._d).format('YYYY-MM-DD'),
+                                RestrictionEndDate: moment($scope.date.endDate._d).format('YYYY-MM-DD')
+                            }
+                            $scope.TrackingRestrictions.splice(i, $scope.TotalNumberOfDuplicatedDateRange, TrackingRestrictionsObj);
+                            break;
+                        }
+                        //else {
+                        //    var TrackingRestrictionsObj = {
+                        //        RestrictionStartDate: $scope.date.startDate._d.toISOString(),
+                        //        RestrictionEndDate: $scope.date.endDate._d.toISOString()
+                        //    }
+
+                        //    $scope.TrackingRestrictions.push(TrackingRestrictionsObj);
+                        //    break;
+                        //}
+                    }
+                }
+                //If there is no range such that having RestrictionEndDate and RestrictionStartDate
+                //Then directly push them to JsonArray
+                if ($scope.TotalNumberOfDuplicatedDateRange == 0) {
+                    var TrackingRestrictionsObj = {
+                        RestrictionStartDate: moment($scope.date.startDate._d).format('YYYY-MM-DD'),
+                        RestrictionEndDate: moment($scope.date.endDate._d).format('YYYY-MM-DD')
+                    }
+
+                    $scope.TrackingRestrictions.push(TrackingRestrictionsObj);
+                }
+                console.log("$scope.TrackingRestrictions");
+                console.log($scope.TrackingRestrictions);
+
+				    //            $scope.highlightDays = [
+    //{ date: moment().date(2).valueOf(), css: 'holiday', selectable: false, title: 'Holiday time !' },
+    //{ date: moment().date(14).valueOf(), css: 'off', selectable: false, title: 'We don\'t work today' },
+    //{ date: moment().date(25).valueOf(), css: 'birthday', selectable: true, title: 'I\'m thir... i\'m 28, seriously, I mean ...' }
+    //            ];
+
+                var startdate = moment($scope.date.startDate);
+                var enddate = moment($scope.date.endDate);
+
+                for (var m = moment(startdate) ; m.isBefore(enddate); m.add(1, 'days')) {
+                    var dateObj = {
+                        date: m.date(m.date).valueOf(),
+                        css: 'off',
+                        selectable: false,
+                        title:'Already selected in date range'
+                    }
+                    $scope.highlightDays.push(dateObj);
+
+                    console.log(m.date().valueOf());
+                    
+                }
+                console.log($scope.highlightDays);
+                console.log("formoment");
+                console.log(moment().date().valueOf());
+            }
+        },
+        ranges: {
+            'Next 7 Days': [moment(), moment().add(7, 'days')],
+            'Next 30 Days': [moment(), moment().add(30, 'days')]
+        }
+    };
+    //------------------------------------------Date range picker--------------------------------------
+
+
+    //------------------------------------------Week day selector--------------------------------------
+    $scope.WeekDayChange = function () {
+        //Processing selected days and pushing those into Json Array
+        console.log("$scope.TrackingRestrictions");
+        console.log($scope.TrackingRestrictions);
+        console.log('$scope.TrackingDaysPreProcessed');
+        console.log($scope.TrackingDaysPreProcessed);
+
+        for (var i = 0; i < $scope.TrackingDaysPreProcessed.length; i++) {
+            if ($scope.TrackingDaysPreProcessed[i].isSelected == true) {
+                $scope.AtleastOneDateIsSelected = true;
+                break;
+            }
+            else {
+                $scope.AtleastOneDateIsSelected = false;
+            }
+
+        }
+
+        console.log('$scope.AtleastOneDateIsSelected');
+        console.log($scope.AtleastOneDateIsSelected);
+    }
+    //------------------------------------------Week day selector--------------------------------------
+
+    //Watch for date changes
+    //$scope.$watch('date', function (newDate) {
+    //    console.log('New date set: ', newDate);
+    //    //Push Date Range Into a multiple array
+    //    var TrackingRestrictionsObj = {
+    //        RestrictionStartDate: newDate.startDate._d.toISOString(),
+    //        RestrictionEndDate: newDate.endDate._d.toISOString()
+    //    }
+    //    $scope.TrackingRestrictions.push(TrackingRestrictionsObj);
+    //    console.log($scope.TrackingRestrictions);
+    //}, false);
+
+    //$scope.date = {
+    //    startDate: moment().subtract(1, "days"),
+    //    endDate: moment()
+    //};
+
+
+
+    var currentDate = new Date();
+    $scope.MaxDate = currentDate.setDate(currentDate.getDate() - 1);
+    $scope.MinDate = currentDate.setYear(currentDate.getFullYear() - 90);
+
+    //-------------------------------------------------DB Operations--------------------------------------------------------
+    $scope.vm = {};
+    $scope.vm.dtInstance = {};
+    $scope.vm.dtColumnDefs = [DTColumnDefBuilder.newColumnDef(1).notSortable(),
+                             DTColumnDefBuilder.newColumnDef(2).notSortable(),
+                             DTColumnDefBuilder.newColumnDef(3).notSortable(),
+                             DTColumnDefBuilder.newColumnDef(4).notSortable()
+    ];
+    $scope.vm.dtOptions = DTOptionsBuilder.newOptions()
+                            .withOption('paging', true)
+                            .withOption('searching', true)
+                            .withOption('info', true);
+
+
+
+    //-------------------------------Getting EmployeeId until we have session and login done----------------------------------
+    employeeServices.GetCompanyProfileId().then(function (response) {
+        $scope.Employee.CP_ProfileId = response.data;
+        console.log("$scope.Employee.CP_ProfileId " + $scope.Employee.CP_ProfileId);
+    });
+
+    employeeServices.GetAccessTypeList().then(function (response) {
+        $scope.AccessTypeList = response.data;
+    });
+    //------------Getting List--------------
+    employeeServices.GetCP_EmployeeList().then(function (response) {
+        $scope.EmployeeList = response.data;
+        console.log("$scope.EmployeeList");
+        console.log($scope.EmployeeList);
+    });
+
+
+    //------------------------------------------Opening a modal:------------------------------------------------
+    $scope.openEmployeeModal = function (id) {
+        employeeServices.GetCP_EmployeeDetails(id).then(function (response) {
+            if (response.data.PermissionStatus == 'Y') {
+                if (id != null) {
+                    employeeServices.GetCP_EmployeeDetails(id).then(function (response) {
+                        $scope.Employee = response.data;
+                        console.log($scope.Employee);
+
+
+                        var TimeStringOfTrackingStart = moment($scope.Employee.TrackingStartTime, "HH:mm:ss");
+                        var TimeStringOfTrackingEnd = moment($scope.Employee.TrackingEndTime, "HH:mm:ss");
+                        $scope.TrackingStartTime = TimeStringOfTrackingStart._d;
+                        $scope.TrackingEndTime = TimeStringOfTrackingEnd._d;
+                        //var DateSTring = moment(new Date());
+
+
+                        //$scope.TrackingStartTime.set({
+                        //    hour: TimeStringOfTrackingStart.get('hour'),
+                        //    minute: TimeStringOfTrackingStart.get('minute'),
+                        //    second: TimeStringOfTrackingStart.get('second')
+                        //});
+                        //$scope.TimeStringOfTrackingEnd.set({
+                        //    hour: TimeStringOfTrackingEnd.get('hour'),
+                        //    minute: TimeStringOfTrackingEnd.get('minute'),
+                        //    second: TimeStringOfTrackingEnd.get('second')
+                        //});
+
+                        //console.log(moment($scope.Employee.TrackingStartTime, moment.ISO_8601));
+                        //console.log(TimeStringOfTrackingStart);
+
+                    })
+                    .then(function () {
+                        $scope.ShowEmployeeInformation = true;
+                        $scope.ShowTrackingInformation = false;
+                        $('#employeeModal').modal('show');
+                    });
+                }
+            }
+            else {
+                toastr.error('Account of employee "' + response.data.Username + '" is disabled ', 'Error!');
+            }
+        })
+    };
+
+
+    //--------------------------------------------Saving or updating:-------------------------------------------------
+    $scope.SaveOrUpdateEmployee = function () {
+        console.log("$scope.date");
+        console.log($scope.date);
+        //Push date range into Json Array
+        if ($scope.date.startDate != null && $scope.date.endDate != null) {
+            var TrackingRestrictionsObj = {
+                RestrictionStartDate: $scope.date.startDate._d.toISOString(),
+                RestrictionEndDate: $scope.date.endDate._d.toISOString()
+            }
+            $scope.TrackingRestrictions.push(TrackingRestrictionsObj);
+        }
+
+
+        //Process Tracking Time
+        $scope.Employee.TrackingStartTime = moment($scope.TrackingStartTime).format("HH:mm:ss");
+        $scope.Employee.TrackingEndTime = moment($scope.TrackingEndTime).format("HH:mm:ss");
+        console.log("$scope.Employee.TrackingStartTime");
+        console.log($scope.Employee.TrackingStartTime)
+        console.log("$scope.Employee.TrackingEndTime");
+        console.log($scope.Employee.TrackingEndTime);
+
+
+        ////$scope.DoNotTrackSelector.DoNotTrackSelectorMultiple For identifying if the proper checkbox is clicked or not 
+        //console.log("$scope.DoNotTrackSelector.DoNotTrackSelectorMultiple");
+        //console.log($scope.DoNotTrackSelector.DoNotTrackSelectorMultiple);
+        ////$scope.DoNotTrackSelector.DoNotTrackSelectorRange For identifying if the proper checkbox is clicked or not
+        //console.log("$scope.DoNotTrackSelector.DoNotTrackSelectorRange");
+        //console.log($scope.DoNotTrackSelector.DoNotTrackSelectorRange);
+
+        //console.log("$scope.TrackingRestrictionsMultipleDates");
+        //console.log($scope.TrackingRestrictionsMultipleDates);
+
+
+        //Push Multiple date into a JsonArray
+        for (var i = 0; i < $scope.TrackingRestrictionsMultipleDates.length; i++) {
+            var TrackingRestrictionsObj = {
+                RestrictionStartDate: moment($scope.TrackingRestrictionsMultipleDates[i]._d).format('YYYY-MM-DD'),
+                RestrictionEndDate: null
+            }
+            $scope.TrackingRestrictions.push(TrackingRestrictionsObj);
+        }
+
+
+        //Processing selected days and pushing those into Json Array
+        console.log("$scope.TrackingRestrictions");
+        console.log($scope.TrackingRestrictions);
+        console.log('$scope.TrackingDaysPreProcessed');
+        console.log($scope.TrackingDaysPreProcessed);
+
+        for (var i = 0; i < $scope.TrackingDaysPreProcessed.length; i++) {
+            if ($scope.TrackingDaysPreProcessed[i].isSelected == true) {
+                var trackingDayObjs = {
+                    Day: $scope.TrackingDaysPreProcessed[i].day,
+                }
+                $scope.TrackingDays.push(trackingDayObjs);
+            }
+
+        }
+
+        console.log('$scope.TrackingDays');
+        console.log($scope.TrackingDays);
+
+
+        //Data Post
+
+        if ($scope.Employee.Id == null) {
+            //Save Data
+            if (true) {
+                employeeServices.SaveCP_Employee($scope).then(function (response) {
+                    $('#employeeModal').modal('hide');
+                    console.log(response.data);
+                    if (response.data.IsReport === "Ok") {
+                        toastr.success(response.data.Message, 'Successful');
+                    }
+                    else if (response.data.IsReport === "NotOk") {
+                        toastr.error(response.data.Message, 'Failed');
+                    }
+                    else if (response.data.IsReport === "UsernameExists") {
+                        toastr.warning(response.data.Message, 'Warning!');
+                    }
+                    else if (response.data.IsReport === "CompanyDoesNotHaveAnyPackage") {
+                        toastr.warning(response.data.Message, 'Warning!');
+                    }
+                    else if (response.data.IsReport === "TrackingAllowanceExceeds") {
+                        toastr.warning(response.data.Message, 'Warning!');
+                    }
+                })
+                .then(function () {
+                    $timeout(function () {
+                        //Null the TrackingDays array
+                        $scope.TrackingDays = [];
+                        //Dis-Select the days into day-selector (thus null the ng-dayselector ng-model)
+                        for (var i = 0; i < $scope.TrackingDaysPreProcessed.length; i++) {
+                            if ($scope.TrackingDaysPreProcessed[i].isSelected == true) {
+                                $scope.TrackingDaysPreProcessed[i].isSelected = false;
+                            }
+                        }
+                        $state.reload();
+                    }, 300)
+
+                });
+            }
+            else {
+                toastr.error("This form contains invalid data. Can not be submitted", 'Error!');
+            }
+        }
+        else if ($scope.Employee.Id != null) {
+            //Update Data
+            if (true) {
+                employeeServices.UpdateCP_Employee($scope).then(function (response) {
+                    $('#employeeModal').modal('hide');
+                    console.log(response.data);
+                    if (response.data.IsReport === "Ok") {
+                        toastr.success(response.data.Message, 'Successful');
+                    }
+                    else if (response.data.IsReport === "NotOk") {
+                        toastr.error(response.data.Message, 'Failed');
+                    }
+                    else if (response.data.IsReport === "UsernameExists") {
+                        toastr.warning(response.data.Message, 'Warning!');
+                    }
+                })
+                .then(function () {
+                    $timeout(function () {
+                        $state.reload();
+                    }, 300)
+
+                });
+            }
+            else {
+                toastr.error("This form contains invalid data. Can not be submitted", 'Error!');
+            }
+        }
+    };
+
+    //-------------------------------------------Deleting:--------------------------------------------
+    //$scope.deleteEmployeeAlert = function (Id) {
+    //    employeeServices.DeleteCP_Employee(Id).then(function (response) {
+    //        if (response.data.IsReport === "Ok") {
+    //            toastr.success(response.data.Message, 'Successful');
+    //            $state.reload();
+    //        }
+    //        else {
+    //            alert('Deletion Failed');
+    //            toastr.error(response.data.Message, 'Failed')
+    //            $state.reload();
+    //        }
+    //    });
+    //};
+
+
+    $scope.deleteEmployeeAlert = function (Id) {
+        swal({
+            title: "Are you sure?",
+            text: "You are going to delete the User",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: true
+        },
+        function () {
+            console.log(Id);
+            employeeServices.DeleteCP_Employee(Id).then(function (response) {
+                console.log(response.data);
+                if (response.data.IsReport === "Ok") {
+                    toastr.success(response.data.Message, 'Successful');
+                }
+                else if (response.data.IsReport === "NotOk") {
+                    toastr.error(response.data.Message, 'Failed');
+                }
+                $state.reload();
+            });
+
+        });
+    };
+
+
+    //----------------------------------------Closing a modal-------------------------------------------
+    $scope.cancelEmployeeListModal = function () {
+        $('#employeeModal').modal('hide');
+        $timeout(function () {
+            //Null the Employee Object
+            $scope.Employee = {};
+            //Reset the TrackingStartTime and TrackingEndTime
+            $scope.TrackingStartTime = new Date();
+            $scope.TrackingEndTime = new Date();
+            ////Null the DoNotTrackSelector Object
+            $scope.DoNotTrackSelector = {};
+            //Null the TrackingRestrictions Array
+            $scope.TrackingRestrictions = [];
+            //Null the TrackingRestrictionsMultipleDates array
+            $scope.TrackingRestrictionsMultipleDates = [];
+            //Null the TrackingDays array
+            $scope.TrackingDays = [];
+            //Dis-Select the days into day-selector (thus null the ng-dayselector ng-model)
+            for (var i = 0; i < $scope.TrackingDaysPreProcessed.length; i++) {
+                if ($scope.TrackingDaysPreProcessed[i].isSelected == true) {
+                    $scope.TrackingDaysPreProcessed[i].isSelected = false;
+                }
+            }
+            //Dis-select (!) and null the daterange ng-model
+            $scope.date = {
+                startDate: null,
+                endDate: null
+            };
+            //$scope.TrackingDaysPreProcessed = null;
+        }, 200);
+    };
+});
+
+//------------------------GARBAGE CODE-------------------------
+
+////Compare Date Mannually
+//$scope.CompareDate = function (form) {
+//    form.BirthDate.$setValidity("text", true);
+//    if ($scope.Employee.BirthDate != undefined || $scope.Employee.BirthDate != "") {
+//        var inputFormat = $scope.Employee.BirthDate;
+//    }
+//    //var parsedDate = function (inputFormat) {
+//    //    function pad(s) { return (s < 10) ? '0' + s : s; }
+//    //    var d = new Date(inputFormat);
+//    //    return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
+//    //}
+//    if (inputFormat != undefined) {
+//        var dateObject = new Date(inputFormat);
+//        console.log(dateObject);
+//        var dateFromDateObj = dateObject.setDate((dateObject.getDate() + 0));
+
+//        var mindate = $scope.MinDate;
+//        var maxdateTemp = $scope.MaxDate;
+
+
+//        //Refine The MaxDate
+//        var maxDateObject = new Date(maxdateTemp);
+//        console.log(maxDateObject);
+//        var maxDateFromDateObj = maxDateObject.setDate((maxDateObject.getDate() + 2));
+
+
+
+//        console.log(mindate);
+//        console.log(maxdate);
+//        if (dateFromDateObj < mindate || dateFromDateObj >= maxDateFromDateObj) {
+//            form.BirthDate.$setValidity("password", false);
+//            form.BirthDate.errorMessage = "This is not a valid date. Use datepicker to pick a valid date";
+//        }
+//        else {
+//            form.BirthDate.$setValidity("password", true);
+//            form.BirthDate.errorMessage = "";
+//        }
+//    }
+//}

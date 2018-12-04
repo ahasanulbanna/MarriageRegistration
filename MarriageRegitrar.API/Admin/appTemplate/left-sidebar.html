@@ -1,0 +1,44 @@
+﻿<div class="left-sidebar" ng-controller="appController">
+    <!-- left sidebar HEADER -->
+    <div class="left-sidebar-header">
+        <!--<div class="left-sidebar-title"><span class="menu-title"><img src="Assets_Admin/images/falcon.png"  width="50"/></span></div>-->
+        <div class="left-sidebar-title"><span class="menu-title">Marriage Registrar</span></div>
+        <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" ng-click="HTMLCollapser()">
+            <span></span>
+        </div>
+    </div>
+    <!-- MENU -->
+    <div id="left-nav" class="nano">
+        <div class="nano-content">
+
+            <nav>
+                <ul class="nav nav-left-lines" id="main-nav">
+
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="home" class="dashboard-color"><i class="fa fa-dashboard dashboard-color" aria-hidden="true"></i><span>Dashboard</span></a>
+                    </li>
+
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="divorcelist"><i class="fa fa-calendar" style="color:#58e0ff" aria-hidden="true"></i><span>Divorce List</span></a>
+                    </li>
+
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="marriagelist"><i class="fa fa-users myaccount-color" aria-hidden="true"></i><span>Marriage List</span></a>
+                    </li>
+
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="quazi"><i class="fa fa-cubes" style="color:#38ff47" aria-hidden="true"></i><span>Quazi</span></a>
+                    </li>
+
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="coinrate"><i class="fa fa-balance-scale" style="color:#d990ff" aria-hidden="true"></i><span>Setup CCD Rate</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--TEMPLATE scripts-->
+<!-- ========================================================= -->
+<script src="Assets_Admin/javascripts/template-script.min.js"></script>
+<script src="Assets_Admin/javascripts/template-init.min.js"></script>

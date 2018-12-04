@@ -1,0 +1,41 @@
+﻿<div class="left-sidebar" ng-controller="appController" style="background: #1d61c7;">
+    <!-- left sidebar HEADER -->
+    <div class="left-sidebar-header" style="background: #1d61c7;">
+        <!--<div class="left-sidebar-title"><span class="menu-title"><img src="Assets_Customer/images/falcon.png"  width="50"/></span></div>-->
+        <div class="left-sidebar-title"><span class="menu-title">Marriage Registrar</span></div>
+        <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" ng-click="HTMLCollapser()">
+            <span></span>
+        </div>
+    </div>
+    <!-- MENU -->
+    <div id="left-nav" class="nano">
+        <div class="nano-content">
+
+            <nav>
+                <ul class="nav nav-left-lines" id="main-nav">
+                    <!--Dahboard-->
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="home" class="dashboard-color"><i class="fa fa-dashboard dashboard-color" aria-hidden="true"></i><span>Dashboard</span></a>
+                    </li>
+                    <!--Investigation-->
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="investigation"><i class="fa fa-exchange" style="color:#82aeff" aria-hidden="true"></i><span>Investigation</span></a>
+                    </li>
+                    <!--Registrar Marriage-->
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="registrarmarriage"><i class="fa fa-exchange" style="color:#82aeff" aria-hidden="true"></i><span>Registrar Marriage</span></a>
+                    </li>
+
+                    <!--Divorce-->
+                    <li ui-sref-active="active-item">
+                        <a ui-sref="divorce"><i class="fa fa-exchange" style="color:#82aeff" aria-hidden="true"></i><span>Divorce</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--TEMPLATE scripts-->
+<!-- ========================================================= -->
+<script src="Assets_Customer/javascripts/template-script.min.js"></script>
+<script src="Assets_Customer/javascripts/template-init.min.js"></script>

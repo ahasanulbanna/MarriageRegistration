@@ -50,39 +50,29 @@
     <Compile Include="Common\AuditableEntity.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="MarriageRegistrarDbContext.cs" />
-    <Compile Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810081659116_Migration_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <Compile Include="Migrations\201812011804594_Migration_From_Nabil_Pc.cs" />
+    <Compile Include="Migrations\201812011804594_Migration_From_Nabil_Pc.Designer.cs">
+      <DependentUpon>201812011804594_Migration_From_Nabil_Pc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810081702528_Migration2_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <Compile Include="Migrations\201812011817124_Migration_From_Nabil_Pc2.cs" />
+    <Compile Include="Migrations\201812011817124_Migration_From_Nabil_Pc2.Designer.cs">
+      <DependentUpon>201812011817124_Migration_From_Nabil_Pc2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810101431126_Migration4_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810101449145_Migration5_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810111228047_Migration1_From_Ahasanul_Banna_PC.cs" />
-    <Compile Include="Migrations\201810111228047_Migration1_From_Ahasanul_Banna_PC.Designer.cs">
-      <DependentUpon>201810111228047_Migration1_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <Compile Include="Migrations\201812032128210_Migration_From_Saif_Pc.cs" />
+    <Compile Include="Migrations\201812032128210_Migration_From_Saif_Pc.Designer.cs">
+      <DependentUpon>201812032128210_Migration_From_Saif_Pc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models_BrideGroom\BgWitness.cs" />
-    <Compile Include="Models_Brides\Bride.cs" />
-    <Compile Include="Models_Admin\Admin.cs" />
-    <Compile Include="Models_BrideGroom\Bridegroom.cs" />
-    <Compile Include="Models_Brides\BrWitness.cs" />
-    <Compile Include="Models_Kazi\Kazi.cs" />
-    <Compile Include="Models_NID\NID.cs" />
-    <Compile Include="Models_Shared\MarriageRegistrarModel.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Attorney.cs" />
+    <Compile Include="Models\Couple.cs" />
+    <Compile Include="Models\Divorce.cs" />
+    <Compile Include="Models\DivorceWitness.cs" />
+    <Compile Include="Models\Marriage.cs" />
+    <Compile Include="Models\MarriageWitness.cs" />
+    <Compile Include="Models\Moulovi.cs" />
+    <Compile Include="Models\NID.cs" />
+    <Compile Include="Models\Quazi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,23 +80,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810081659116_Migration_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810081659116_Migration_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812011804594_Migration_From_Nabil_Pc.resx">
+      <DependentUpon>201812011804594_Migration_From_Nabil_Pc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810081702528_Migration2_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810081702528_Migration2_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812011817124_Migration_From_Nabil_Pc2.resx">
+      <DependentUpon>201812011817124_Migration_From_Nabil_Pc2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810081934534_Migration3_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810081934534_Migration3_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810101431126_Migration4_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810101431126_Migration4_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810101449145_Migration5_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810101449145_Migration5_From_Ahasanul_Banna_PC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810111228047_Migration1_From_Ahasanul_Banna_PC.resx">
-      <DependentUpon>201810111228047_Migration1_From_Ahasanul_Banna_PC.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812032128210_Migration_From_Saif_Pc.resx">
+      <DependentUpon>201812032128210_Migration_From_Saif_Pc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

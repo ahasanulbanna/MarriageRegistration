@@ -1,0 +1,234 @@
+﻿<!doctype html>
+<html lang="en" class="{{HTMLCollapseStatus}}" ng-app="CCDApp">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Crypto Credit Foundation</title>
+    <link rel="apple-touch-icon" sizes="120x120" href="Assets_Admin/images/cryptocredit.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Assets_Admin/images/cryptocredit.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets_Admin/images/cryptocredit.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets_Admin/images/cryptocredit.png">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>-->
+    <!--load progress bar-->
+    <script src="Assets_Admin/vendor/pace/pace.min.js"></script>
+    <link href="Assets_Admin/vendor/pace/pace-theme-minimal.css" rel="stylesheet" />
+
+    <!--BASIC css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="Assets_Admin/vendor/bootstrap/css/bootstrap.css">
+    <link href="Assets_Admin/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="Assets_Admin/vendor/font-awesome/css/font-awesome.css">-->
+    <link rel="stylesheet" href="Assets_Admin/vendor/animate.css/animate.css">
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--AngularJS toastr-->
+    <link href="Assets_Admin/vendor/toastr/angular-toastr.css" rel="stylesheet" />
+    <!--Magnific popup-->
+    <link rel="stylesheet" href="Assets_Admin/vendor/magnific-popup/magnific-popup.css">
+    <!--TEMPLATE css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="Assets_Admin/stylesheets/css/style.css">
+
+    <!--Custom CSS-->
+    <link href="Assets_Admin/custom-css/custom.css" rel="stylesheet" />
+
+    <!--Jasny Bootstrap CSS-->
+    <link href="Assets_Admin/jasny-bootstrap/css/jasny-bootstrap.css" rel="stylesheet" />
+
+    <!--AngularJS DataTable CSS-->
+    <link href="Assets_Admin/angularjs-datatable/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!--AngularJS DatePicker CSS-->
+    <link href="Assets_Admin/angular-datepicker/angular-datepicker.css" rel="stylesheet" />
+
+    <!--Sweetalert CSS-->
+    <link href="Assets_Admin/vendor/sweetalert/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <!--AngularJS Weekday Selector CSS-->
+    <link href="Assets_Admin/angular-weekday/ngWeekdaySelector.css" rel="stylesheet" />
+
+    <!--Bootstrap Timepicker CSS-->
+    <link href="Assets_Admin/ui-bootstrap-datetime-picker/bootstrap-timepicker.min.css" rel="stylesheet" />
+
+    <!--Multiple Datepicker CSS-->
+    <link href="Assets_Admin/multiple datepicker/multipleDatePicker.css" rel="stylesheet" />
+
+    <!--Bootstrap Date-Range Picker CSS-->
+    <link href="Assets_Admin/daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+    <!--720kb angular tooltip CSS-->
+    <link href="Assets_Admin/angular-tooltip/angular-tooltips.css" rel="stylesheet" />
+
+    <!--Angular Block-UI CSS-->
+    <link href="Assets_Admin/angular-block-ui/angular-block-ui.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+    <!--THIS IS TEMPLATE WITH UI-VIEW INSIDE-->
+    <div class="wrap">
+
+
+
+        <!-- BODY -->
+        <!-- ========================================================= -->
+        <div class="page-body">
+
+
+
+            <!-- MAIN CONTENT -->
+            <div ui-view></div>
+
+
+            <!--scroll to top-->
+            <a href="#" class="scroll-to-top"><i class="fa fa-angle-double-up"></i></a>
+        </div>
+    </div>
+
+    <!--CORE scripts-->
+    <!-- ========================================================= -->
+    <script src="Assets_Admin/vendor/jquery/jquery-1.12.3.min.js"></script>
+    <script src="Assets_Admin/angularjs/angular.js"></script>
+    <script src="Assets_Admin/angular-message/angular-messages.js"></script>
+    <script src="Assets_Admin/angular-animate/angular-animate.js"></script>
+    <script src="Assets_Admin/angular-touch/angular-touch.js"></script>
+    <script src="Assets_Admin/angular-ui-route/angular-ui-router.min.js"></script>
+    <script src="Assets_Admin/angular-sanitize/angular-sanitize.js"></script>
+    <script src="Assets_Admin/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="Assets_Admin/vendor/nano-scroller/nano-scroller.js"></script>
+    <!--TEMPLATE scripts-->
+    <!-- ========================================================= -->
+    <!--<script src="Assets_Admin/javascripts/template-script.min.js"></script>
+    <script src="Assets_Admin/javascripts/template-init.min.js"></script>-->
+    <!--morris chart-->
+    <!--<script src="Assets_Admin/vendor/chart-js/chart.min.js"></script>-->
+    <!--Gallery with Magnific popup-->
+    <script src="Assets_Admin/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!--Jasny Bootstrap Script-->
+    <script src="Assets_Admin/jasny-bootstrap/js/jasny-bootstrap.js"></script>
+
+    <!-- Angular JS DataTable -->
+    <script src="Assets_Admin/angularjs-datatable/angular-datatables.js"></script>
+    <script src="Assets_Admin/angularjs-datatable/jquery.dataTables.min.js"></script>
+    <script src="Assets_Admin/angularjs-datatable/dataTables.bootstrap.min.js"></script>
+
+    <!--AngularJS Toastar-->
+    <script src="Assets_Admin/vendor/toastr/angular-toastr.tpls.min.js"></script>
+
+    <!--AngularJS DatePicker JS-->
+    <script src="Assets_Admin/angular-datepicker/angular-datepicker.js"></script>
+
+    <!--Sweetalert JS-->
+    <script src="Assets_Admin/vendor/sweetalert/sweetalert/sweetalert.js"></script>
+    <script src="Assets_Admin/ang-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="Assets_Admin/ang-file-upload/ng-file-upload.min.js"></script>
+
+    <!--AngularJS app-->
+    <script src="app.js"></script>
+    <script src="appController.js"></script>
+    <script src="appServices.js"></script>
+    <script src="customConfigs_Admin/customConfig.js"></script>
+    <script src="customDirectives_Admin/customDirective.js"></script>
+    <script src="customFilters_Admin/customFilter.js"></script>
+    <script src="customServices_Admin/customService.js"></script>
+
+
+
+    <!--Angualrjs cookies-->
+    <script src="Assets_Admin/angular-cookies/angular-cookies.min.js"></script>
+
+    <!--Angualrjs base64-->
+    <script src="Assets_Admin/angular-base64/angular-base64.min.js"></script>
+
+    <!--Google Maps-->
+    <script src="Assets_Admin/angularjs-maps/ng-map.min.js"></script>
+
+    <!--AIzaSyB9XKuAdYKmQcN-j_YpiU55zjKFWEKw43w-->
+    <!--AIzaSyDDthJ2opw-9D6xTHPM6SYyGaFSEvq9ZkY-->
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuNHRed3RS3qqxSH9Yk2PFr60DI0rsSG8&libraries=places"></script>-->
+    <!--AngularJS Autocomplete-->
+    <script src="Assets_Admin/ng-autocomplete/ngAutocomplete.js"></script>
+
+    <!--Bootstrap Timepicker JS (Depricated)-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>-->
+    <!--Moment.js JS--> <!--(For Making Date and time issue resolved)-->
+    <script src="Assets_Admin/moment-js/moment-with-locales.js"></script>
+
+
+    <!--AngularJS ui-bootstrap--> <!--(For timepicker (tracking start and tracking end))-->
+    <!--<script src="Assets_Admin/ui-bootstrap/ui-bootstrap-2.5.0.js"></script>-->
+    <script src="Assets_Admin/ui-bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+
+    <!--AngularJS Weekday Selector JS--> <!--(For selecting multiple weekday)-->
+    <script src="Assets_Admin/angular-weekday/ngWeekdaySelector.js"></script>
+
+    <!--720kb angular tooltip JS-->
+    <script src="Assets_Admin/angular-tooltip/angular-tooltips.js"></script>
+
+    <!--Multiple Datepicker JS--> <!--(For Selecting Multiple date)-->
+    <script src="Assets_Admin/multiple datepicker/multipleDatePicker.js"></script>
+
+    <!--Bootstrap DateRange Picker JS--> <!--For Selecting Date range-->
+    <script src="Assets_Admin/daterangepicker/daterangepicker.js"></script>
+    <script src="Assets_Admin/daterangepicker/angular-daterangepicker.js"></script>
+
+    <!--PDF.JS-->
+    <script src="Assets_Admin/pdf-js/pdf.js"></script>
+    <script src="Assets_Admin/pdf-js/pdf.worker.js"></script>
+
+    <!--ui-bootstrap-datetime-picker-->
+    <script src="Assets_Admin/ui-bootstrap-datetime-picker/datetime-picker.js"></script>
+    <!--<script src="Assets_Admin/ui-bootstrap-datetime-picker/datetime-picker.tpls.js"></script>-->
+    <!--AngularJS File Upload by https://github.com/danialfarid/ng-file-upload-->
+    <script src="Assets_Admin/ng-file-upload/ng-file-upload-all.js"></script>
+
+    <!--download.js-->
+    <script src="Assets_Admin/download-js/download.js"></script>
+
+    <!--Angular Block-UI JS-->
+    <script src="Assets_Admin/angular-block-ui/angular-block-ui.js"></script>
+
+    <!--AngularJS ChartJS-->
+    <script src="Assets_Admin/angular-chart/Chart.js"></script>
+    <script src="Assets_Admin/angular-chart/angular-chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/2cs-canvas2image@0.0.2/canvas2image.js"></script>
+
+    <script src="Assets_Admin/humanize-duration/humanize-duration.js"></script>
+    <script src="../Customer/Assets_Customer/angular-timer/angular-timer.js"></script>
+
+
+    <!--controller and services-->
+
+    <script src="app/logIn/logInController.js"></script>
+    <script src="app/logIn/logInServices.js"></script>
+
+    <script src="app/home/homeController.js"></script>
+    <script src="app/home/homeServices.js"></script>
+
+    <script src="app/profile/profileController.js"></script>
+    <script src="app/profile/profileServices.js"></script>
+
+
+
+  
+
+    <script src="app/coinrate/coinrateController.js"></script>
+    <script src="app/coinrate/coinrateServices.js"></script>
+
+  
+
+   
+
+    <script src="app/setting/settingController.js"></script>
+    <script src="app/setting/settingServices.js"></script>
+
+</body>
+
+</html>

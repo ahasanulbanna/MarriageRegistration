@@ -1,15 +1,18 @@
-using System.Data.Entity.Migrations;
-
 namespace MarriageRegitrar.Models.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<MarriageRegistrarDbContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<MarriageRegitrar.Models.MarriageRegistrarDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MarriageRegistrarDbContext context)
+        protected override void Seed(MarriageRegitrar.Models.MarriageRegistrarDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
