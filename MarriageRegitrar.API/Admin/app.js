@@ -84,11 +84,6 @@ MRApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, toastr
            
         })
 
-     
-
-      
-
-     
 
           //---------------------------------------------------------------SET UP EMAIl-----------------------------------------------------
         .state('setting', {
