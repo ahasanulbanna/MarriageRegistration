@@ -1380,11 +1380,13 @@ a {
       text-align: center; }
     .theme-salvia .owl-dot.active {
       background: rgba(134, 107, 254, 0.8); }
-  .theme-salvia .site-header.has-fixed .navbar {
-    background: #fff;
-    box-shadow: 0 10px 40px rgba(93, 70, 232, 0.15); }
+    .theme-salvia .site-header.has-fixed .navbar {
+        background: #666f1b;
+        box-shadow: 0 10px 40px rgba(93, 70, 232, 0.15);
+    }
     .theme-salvia .site-header.has-fixed .navbar-nav > li > a {
-      color: #353c65; }
+        color: #fff;
+    }
     .theme-salvia .site-header.has-fixed .navbar .btn.btn-outline {
       border-color: #2bc9b4;
       color: #2bc9b4; }

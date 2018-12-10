@@ -303,7 +303,8 @@ fieldset[disabled] .custom-form-control {
 /*badge for  Payment Method*/
 /*ion icon custom color*/
 .dashboard-color {
-    color: #33ddba;
+    color: #fff;
+    padding: 10px;
 }
 
 .settings-color {

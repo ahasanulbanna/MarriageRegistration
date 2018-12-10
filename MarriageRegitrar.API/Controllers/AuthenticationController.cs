@@ -18,8 +18,25 @@ namespace MarriageRegitrar.API.Controllers
         [HttpPost]
         public IHttpActionResult Login(Login login)
         {
-            var isQuazi = context.Admins.Any(x => (x.Name == login.Username || x.Email == login.Username) && x.Password == login.Password);
-            return Ok(isQuazi);
+            var isAdmin = context.Admins.Where(x => (x.Name == login.Username || x.Email == login.Username) && x.Password == login.Password)
+                .Select(x=>new { x.Id,x.Name})
+                .FirstOrDefault();
+            var isQuazi = context.Quazies.Where(x => (x.Name == login.Username || x.NidNo == login.Username || x.MobileNo == login.Username) && x.Password == login.Password)
+                .Select(x =>new { x.Name,x.Id})
+                .FirstOrDefault();
+            if (isAdmin !=null)
+            {
+                return Ok(isAdmin);
+            }
+            else if (isQuazi!=null)
+            {
+                return Ok(isQuazi);
+            }
+            else
+            {
+                return BadRequest();
+            }
+          
         }
     }
 }

@@ -75,6 +75,16 @@ namespace MarriageRegistrar.Services.Quazi_Services
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public JsonResult QuaziList()
+        {
+            return new JsonResult
+            {
+                Data = context.Quazies.ToList(),
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
+
         public JsonResult UpdateQuaziByQuaziId(Quazi quazi)
         {
             int noOfRowUpdated = context.Database.ExecuteSqlCommand($"UPDATE Quazi SET Name='{quazi.Name}', [] = '{quazi.Address}");
@@ -100,5 +110,6 @@ namespace MarriageRegistrar.Services.Quazi_Services
         JsonResult AddNewQuazi(Quazi quazi);
         JsonResult UpdateQuaziByQuaziId(Quazi quazi);
         JsonResult GetQuaziByQuaziId(int Id);
+        JsonResult QuaziList();
     }
 }

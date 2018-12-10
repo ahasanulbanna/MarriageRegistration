@@ -1,8 +1,8 @@
-﻿CCDApp.factory("quaziServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+﻿MRApp.factory("quaziServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
     return {
-        GetNumberOfRegisteredClients: function () {
+        GetQuaziList: function () {
             return $http({
-                url: "/Api/Dashboard/GetNumberOfRegisteredClients",
+                url: "/Api/Quazi/QuaziList",
                 headers: {
                     "content-type": "application/json",
                     "cache-control": "no-cache"
@@ -11,9 +11,22 @@
                 async: false
             });
         },
-        GetCountTotalTokenSold: function () {
+
+        AddNewQuazi: function (Quazi) {
             return $http({
-                url: "/Api/Dashboard/GetCountTotalTokenSold",
+                url: "/Api/Quazi/AddNewQuazi",
+                headers: {
+                    "content-type": "application/json",
+                    "cache-control": "no-cache"
+                },
+                data: Quazi,
+                method: "POST",
+                async: false
+            });
+        },
+        GetQuaziByQuaziId: function (Id) {
+            return $http({
+                url: "/Api/Quazi/GetQuaziByQuaziId/"+Id,
                 headers: {
                     "content-type": "application/json",
                     "cache-control": "no-cache"

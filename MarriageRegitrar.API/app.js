@@ -1,6 +1,6 @@
-﻿var CCDApp = angular.module("CCDApp", ['ui.router', 'ngMessages', 'toastr', 'ngSanitize', 'ngAnimate', "ngCookies", "base64", "blockUI", "chart.js", "timer"]);
+﻿var MRApp = angular.module("MRApp", ['ui.router', 'ngMessages', 'toastr', 'ngSanitize', 'ngAnimate', "ngCookies", "base64", "blockUI", "chart.js", "timer"]);
 
-CCDApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, toastrConfig, blockUIConfig) {
+MRApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, toastrConfig, blockUIConfig) {
 
     angular.extend(toastrConfig, {
         autoDismiss: false,
@@ -15,12 +15,12 @@ CCDApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, toast
         allowHtml: true
     });
 
-    blockUIConfig.message = 'Please Wait ...';
+    blockUIConfig.message = 'Loading ...';
 
 });
 
 
-CCDApp.run(function ($rootScope, $http, $q, $state, toastr, $timeout, appServices, $cookies, $window) {
+MRApp.run(function ($rootScope, $http, $q, $state, toastr, $timeout, appServices, $cookies, $window) {
 
 });
 

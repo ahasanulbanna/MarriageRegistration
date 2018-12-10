@@ -1,0 +1,638 @@
+﻿<!-- left-sidebar -->
+<div ng-include="'appTemplate/left-sidebar.html'"></div>
+<!-- page-header -->
+<div ng-include="'appTemplate/page-header.html'"></div>
+
+<div class="content">
+    <!--style=" background: rgb(2,0,36);   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(39,255,0,1) 0%, rgba(8,13,148,1) 100%); "-->
+    <!-- content HEADER -->
+
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-dashboard" aria-hidden="true"></i><a ui-sref="home">Marriage Registration</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="animated fadeInUp">
+        <form name="MarrigaeForm" novalidate>
+
+            <div class="row">
+                <!-- Bride -->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Bride Information</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrName"
+                                           placeholder="Bride Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BrName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrName.$dirty && MarrigaeForm.BrName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrFName"
+                                           placeholder="Bride Father Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BrFName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrFName.$dirty && MarrigaeForm.BrFName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrFName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrMName"
+                                           placeholder="Bride Mother Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BrMName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrMName.$dirty && MarrigaeForm.BrMName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrMName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BrAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bride Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BrAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrAddress.$dirty && MarrigaeForm.BrAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bridegroom -->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Bridegroom Information</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgName"
+                                           placeholder="Bridegroom Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BgName" />
+                                </div>
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgName.$dirty && MarrigaeForm.BgName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgFName"
+                                           placeholder="Bridegroom Father Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BgFName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgFName.$dirty && MarrigaeForm.BgFName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgFName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgMName"
+                                           placeholder="Bridegroom Mother Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BgMName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgMName.$dirty && MarrigaeForm.BgMName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgMName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BgAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bridegroom Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BgAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgAddress.$dirty && MarrigaeForm.BgAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bride Witness -->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Bride Witness</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrWitnessName"
+                                           placeholder="Bride Witness Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BrWitnessName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrWitnessName.$dirty && MarrigaeForm.BrWitnessName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrWitnessName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrWitnessNid"
+                                           placeholder="Bride Witness NID No."
+                                           ng-required="true"
+                                           ng-model="Marriage.BrWitnessNid" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrWitnessNid.$dirty && MarrigaeForm.BrWitnessNid.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrWitnessNid.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrWitnessMobileNo"
+                                           placeholder="Bride Witness Mobile No."
+                                           ng-required="true"
+                                           ng-model="Marriage.BrWitnessMobileNo" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrWitnessMobileNo.$dirty && MarrigaeForm.BrWitnessMobileNo.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrWitnessMobileNo.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BrWitnessAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bride witness Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BrWitnessAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrWitnessAddress.$dirty && MarrigaeForm.BrWitnessAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrWitnessAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bridegroom Witness-->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Bridegroom Witness</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgWitnessName"
+                                           placeholder="NID No."
+                                           ng-required="true"
+                                           ng-model="Marriage.BgWitnessName" />
+                                </div>
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgWitnessName.$dirty && MarrigaeForm.BgWitnessName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgWitnessName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgWitnessNid"
+                                           placeholder="Bridegroom Witness NID No."
+                                           ng-required="true"
+                                           ng-model="Marriage.BgWitnessNid" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgWitnessNid.$dirty && MarrigaeForm.BgWitnessNid.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgWitnessNid.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgWitnessMobileNo"
+                                           placeholder="Bridegroom Witness Mobile No."
+                                           ng-required="true"
+                                           ng-model="Marriage.BgWitnessMobileNo" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgWitnessMobileNo.$dirty && MarrigaeForm.BgWitnessMobileNo.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgWitnessMobileNo.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BgWitnessAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bridegroom witness Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BgWitnessAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgWitnessAddress.$dirty && MarrigaeForm.BgWitnessAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgWitnessAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moulovi -->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Moulovi Information</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="MouloviName"
+                                           placeholder="NID No."
+                                           ng-required="true"
+                                           ng-model="Marriage.MouloviName" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.MouloviName.$dirty && MarrigaeForm.MouloviName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.MouloviName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="MouloviNidNo"
+                                           placeholder="Moulovi NID No."
+                                           ng-required="true"
+                                           ng-model="Marriage.MouloviNidNo" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.MouloviNidNo.$dirty && MarrigaeForm.MouloviNidNo.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.MouloviNidNo.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="MouloviMobileNo"
+                                           placeholder="Moulovi Mobile No."
+                                           ng-required="true"
+                                           ng-model="Marriage.MouloviMobileNo" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.MouloviMobileNo.$dirty && MarrigaeForm.MouloviMobileNo.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.MouloviMobileNo.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="MouloviAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Moulovi Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.MouloviAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.MouloviAddress.$dirty && MarrigaeForm.MouloviAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.MouloviAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attorney -->
+                <div class="col-lg-6">
+                    <h1 style="text-align:center;">Attorney Information</h1>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BrAttorneyName"
+                                           placeholder="Bride Attorney Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BrAttorneyName" />
+                                </div>
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrAttorneyName.$dirty && MarrigaeForm.BrAttorneyName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrAttorneyName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BrAttorneyAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bride Attorney Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BrAttorneyAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BrAttorneyAddress.$dirty && MarrigaeForm.BrAttorneyAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BrAttorneyAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="BgAttorneyName"
+                                           placeholder="Bridegroom Attorney Name"
+                                           ng-required="true"
+                                           ng-model="Marriage.BgAttorneyName" />
+                                </div>
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgAttorneyName.$dirty && MarrigaeForm.BgAttorneyName.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgAttorneyName.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <textarea type="text" class="form-control" name="BgAttorneyAddress"
+                                              rows="4" cols="120"
+                                              placeholder="Bridegroom Attorney Address"
+                                              ng-required="true"
+                                              ng-model="Marriage.BgAttorneyAddress"></textarea>
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.BgAttorneyAddress.$dirty && MarrigaeForm.BgAttorneyAddress.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.BgAttorneyAddress.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6">
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <label class="control-label">Amount of Dower</label>
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="DowerAmount"
+                                           placeholder="Marriage Dower Amount"
+                                           ng-required="true"
+                                           ng-model="Marriage.DowerAmount" />
+                                </div>
+
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.DowerAmount.$dirty && MarrigaeForm.DowerAmount.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.DowerAmount.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6">
+                    <div class="panel panel-primary panel-bordered">
+                        <div class="panel-body">
+                            <label class="control-label">Registration Fee</label>
+                            <div class="form-group-sm">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-users"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="MarriageRegistrationFee"
+                                           placeholder="Marriage Registration Fee"
+                                           ng-required="true"
+                                           ng-model="Marriage.MarriageRegistrationFee" />
+                                </div>
+                                <div class="row custom-row">
+                                    <ul class="list-unstyled errormessage pull-left" ng-show="MarrigaeForm.MarriageRegistrationFee.$dirty && MarrigaeForm.MarriageRegistrationFee.$invalid">
+                                        <li><span class="pull-left" ng-show="MarrigaeForm.MarriageRegistrationFee.$error.required">*Required</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </form>
+        <button type="button" style="min-width: 100%;"
+                class="btn btn-wide btn-primary pull-right btn-right-border-radius"
+                ng-disabled="MarrigaeForm.$invalid"
+                ng-click="MarriageRegistrar(Marriage)">
+            <span>
+                Registrar Marriage &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check fa-1x"></i>
+            </span>
+        </button>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+</div>
+
+<style>
+    .tr-style-static {
+        transition: all 0.5s ease !important;
+        /* background-color: #f7f7f7; */
+        border-radius: 14px;
+        /* border: 1px solid #000; */
+        /*box-shadow: inset 0 0px 20px 0px rgb(24, 146, 121);*/
+    }
+
+    .tr-style-blink {
+        transition: all 0.5s ease !important;
+        /* background-color: #f7f7f7; */
+        /*border-radius: 14px;*/
+        border-radius: 25px;
+        /* border: 1px solid #000; */
+        box-shadow: inset 0 0px 20px 0px #ff9400;
+    }
+
+    .td-style {
+        padding: 13px;
+        font-size: 15px;
+        font-family: monospace;
+    }
+</style>

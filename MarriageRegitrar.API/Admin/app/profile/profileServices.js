@@ -1,4 +1,4 @@
-﻿CCDApp.factory("profileServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+﻿MRApp.factory("profileServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
     return {
         UpdateAdminGeneralInfo: function (admin) {
             return $http({

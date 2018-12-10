@@ -1,5 +1,5 @@
 ﻿/// <reference path="app.js" />
-CCDApp.controller('profileController', function ($scope, profileServices, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $state) {
+MRApp.controller('profileController', function ($scope, profileServices, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $state) {
     //====================================================================Declaration=================================================================================
     $scope.Admin = {};
 

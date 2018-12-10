@@ -1,160 +1,199 @@
-﻿<!-- left-sidebar -->
-<div ng-include="'appTemplate/left-sidebar.html'"></div>
-<!-- page-header -->
+﻿<!-- page-header -->
 <div ng-include="'appTemplate/page-header.html'"></div>
 
 
-<div class="content">
-    <!-- content HEADER -->
 
-    <div class="content-header">
-        <!-- leftside content header -->
-        <div class="leftside-content-header">
-            <ul class="breadcrumbs">
-                <li><i class="fa fa-dashboard" aria-hidden="true"></i><a ui-sref="home">Dashboard</a></li>
-            </ul>
+
+
+
+<div class="content" style="margin-top: 51px;">
+
+    <div class="container">
+        <div class="panel" data-ng-controller="quaziController">
+            <div class="panel-heading border">
+                <h2>
+                    Quazi List
+                </h2>
+            </div>
+            <div class="panel-body">
+                <button type="button" class="btn btn-default btn-o pull-right btn-addon btn-o-addon" ng-click="openEmptyQuaziModal()">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Add New Quazi
+                </button>
+
+                <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Nid Number</th>
+                            <th>Registrar Number</th>
+                            <th>Address</th>
+                            <th>Password</th>
+                            <th class="custom-datatabel-action-th">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="n in QuaziList">
+                            <td>{{n.Name}}</td>
+                            <td>{{n.NidNo}}</td>
+                            <td>{{n.RegistrationNo}}</td>
+                            <td>{{n.Address}}</td>
+                            <td>{{n.Password}}</td>
+                            <td>
+                                <button style="border:1px solid #02715a; background-color:#ffffff" type="button" tooltip-placement="top" uib-tooltip="{{'Edit'}}" class="btn btn-default" ng-click="openQuaziModal(n.Id);"><img src="Assets_Admin/images/datatables/edit.png" width="20" /></button> &nbsp; &nbsp;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-    <div class="animated fadeInUp">
-        <div class="row">
+</div>
 
-            <div class="col-sm-12 col-lg-12">
-                <!--Customer, Free Coin Submission AND YouTube Bounty Submission-->
+
+
+
+<div class="modal fade" id="quaziModal" tabindex="-1" role="dialog" aria-labelledby="modal-label" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="custom-close" data-dismiss="modal" aria-label="Close" ng-click="canceQuaziModal()" tooltip-placement="left" uib-tooltip="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="margin-top:1.6%" ng-if="Quazi.Id === undefined">Add New Quazi</h4>
+                <h4 class="modal-title" style="margin-top:1.6%" ng-if="Quazi.Id != null">Update Quazi</h4>
+            </div>
+            <div class="modal-body">
                 <div class="row">
-                    <!--Customer-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="registeredclient">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-group color-darker-1" style="font-size:40px">
+                    <div class="col-lg-12">
 
+                        <div class="panel panel-primary panel-bordered">
+                            <div class="panel-body">
+                                <form name="QuaziForm" novalidate>
+                                    <label class="control-label">Name</label>
+                                    <div class="form-group-sm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-users"></i>
                                             </span>
+                                            <input type="text" class="form-control" name="Name"
+                                                   ng-required="true"
+                                                   ng-model="Quazi.Name" />
                                         </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total Quazi</h4>
+
+                                        <div class="row custom-row">
+                                            <ul class="list-unstyled errormessage pull-left" ng-show="QuaziForm.Name.$dirty && QuaziForm.Name.$invalid">
+                                                <li><span class="pull-left" ng-show="QuaziForm.Name.$error.required">*Required</span></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{TotalCustomer}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Online</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{OnlineCustomer}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Offline</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{OfflineCustomer}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
 
-
-                    <!--Air-Drop Submission-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="airdropcoinclaimresult">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-flash  color-darker-1" style="font-size:40px">
+                                    <label class="control-label">NID Number</label>
+                                    <div class="form-group-sm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-clipboard"></i>
                                             </span>
+                                            <input type="number" class="form-control" name="NidNo" min="0"
+                                                   ng-required="true"
+                                                   ng-model="Quazi.NidNo" />
                                         </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total MArriage</h4>
+
+                                        <div class="row custom-row">
+                                            <ul class="list-unstyled errormessage pull-left" ng-show="QuaziForm.NidNo.$dirty && QuaziForm.NidNo.$invalid">
+                                                <li><span class="pull-left" ng-show="QuaziForm.NidNo.$error.required">*Required</span></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Total}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Rejected}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
 
-
-                    <!--YouTube Bounty Submission-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="youtubebountyclaimresult">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-youtube-square  color-darker-1" style="font-size:40px">
+                                    <label class="control-label">Address</label>
+                                    <div class="form-group-sm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-address-book"></i>
                                             </span>
+                                            <input type="text" class="form-control" name="Address"
+                                                   ng-required="true"
+                                                   ng-model="Quazi.Address" />
                                         </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total Divorce</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Total}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Rejected}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+
+                                        <div class="row custom-row">
+                                            <ul class="list-unstyled errormessage pull-left" ng-show="QuaziForm.Address.$dirty && QuaziForm.Address.$invalid">
+                                                <li><span class="pull-left" ng-show="QuaziForm.Address.$error.required">*Required</span></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+
+                                    <label class="control-label">Mobile No.</label>
+                                    <div class="form-group-sm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone"></i>
+                                            </span>
+                                            <input type="text" class="form-control" name="MobileNo"
+                                                   ng-required="true"
+                                                   ng-model="Quazi.MobileNo" />
+                                        </div>
+
+                                        <div class="row custom-row">
+                                            <ul class="list-unstyled errormessage pull-left" ng-show="QuaziForm.MobileNo.$dirty && QuaziForm.MobileNo.$invalid">
+                                                <li><span class="pull-left" ng-show="QuaziForm.MobileNo.$error.required">*Required</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <label class="control-label">Password</label>
+                                    <div class="form-group-sm">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-paperclip"></i>
+                                            </span>
+                                            <input type="password" class="form-control" name="Password"
+                                                   ng-required="true"
+                                                   ng-model="Quazi.Password" />
+                                        </div>
+
+                                        <div class="row custom-row">
+                                            <ul class="list-unstyled errormessage pull-left" ng-show="QuaziForm.Password.$dirty && QuaziForm.Password.$invalid">
+                                                <li><span class="pull-left" ng-show="QuaziForm.Password.$error.required">*Required</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="modal-footer">
+                <div class="row row-modal">
+                    <div ng-if="Quazi.Id === undefined">
+                        <button type="button"
+                                class="btn btn-wide btn-primary pull-right btn-right-border-radius"
+                                ng-disabled="QuaziForm.$invalid"
+                                ng-click="AddQuazi(Quazi)">
+                            <span>
+                                Save &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check fa-1x"></i>
+                            </span>
+                        </button>
+                        <button type="button" ng-if="Quazi.Id!=null"
+                                class="btn btn-wide btn-primary pull-right btn-left-border-radius"
+                                ng-click="UpdateLoanScheme()"
+                                ng-disabled="QuaziForm.$invalid"
+                                role="button">
+                            Update &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-check fa-1x"></i>
+                        </button>
+                        <button type="button"
+                                class="btn btn-wide btn-default pull-right btn-left-border-radius"
+                                ng-click="canceQuaziModal()"
+                                role="button">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 </div>
 
 <style>

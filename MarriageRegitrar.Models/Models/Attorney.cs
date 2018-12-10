@@ -9,13 +9,13 @@ namespace MarriageRegitrar.Models.Models
 {
     public class Attorney:Entity<int>
     {
-        public string BrName { get; set; }
-        public string BrNidNo { get; set; }
-        public string BrMobileNo { get; set; }
-        public string BrAddress { get; set; }
-        public string BgName { get; set; }
-        public string BgNidNo { get; set; }
-        public string BgMobileNo { get; set; }
-        public string BgAddress { get; set; }
+        public string BrAttorneyName { get; set; }
+        public string BrAttorneyNidNo { get; set; }
+        public string BrAttorneyMobileNo { get; set; }
+        public string BrAttorneyAddress { get; set; }
+        public string BgAttorneyName { get; set; }
+        public string BgAttorneyNidNo { get; set; }
+        public string BgAttorneyMobileNo { get; set; }
+        public string BgAttorneyAddress { get; set; }
     }
 }

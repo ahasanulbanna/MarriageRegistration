@@ -1,5 +1,5 @@
 ﻿/// <reference path="app.js" />
-CCDApp.controller('appController', function ($scope, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $state) {
+MRApp.controller('appController', function ($scope, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder, $state) {
 
     //====================================================================Declaration=================================================================================
     var date = new Date();
@@ -12,14 +12,15 @@ CCDApp.controller('appController', function ($scope, $rootScope, appServices, $c
     //====================================================================Element Processing==========================================================================
     $scope.HTMLCollapser = function () {
         if ($rootScope.HTMLCollapseStatus == "fixed left-sidebar-top") {
-            $cookies.put('HTMLCollapseStatus', "fixed left-sidebar-top left-sidebar-collapsed", { 'expires': date, 'path': '/' });
+            updateCookie('HTMLCollapseStatus', "fixed left-sidebar-top left-sidebar-collapsed");
             $rootScope.HTMLCollapseStatus = "fixed left-sidebar-top left-sidebar-collapsed";
         }
         else if ($rootScope.HTMLCollapseStatus == "fixed left-sidebar-top left-sidebar-collapsed") {
-            $cookies.put('HTMLCollapseStatus', "fixed left-sidebar-top", { 'expires': date, 'path': '/' });
+            updateCookie('HTMLCollapseStatus', "fixed left-sidebar-top");
             $rootScope.HTMLCollapseStatus = "fixed left-sidebar-top";
         }
     }
+
 
 
 

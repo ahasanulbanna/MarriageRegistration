@@ -1,4 +1,4 @@
-﻿CCDApp.factory("appServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+﻿MRApp.factory("appServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
     return {
         GetTimeTableDetails: function () {
             return $http({

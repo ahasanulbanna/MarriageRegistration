@@ -21,11 +21,18 @@ namespace MarriageRegitrar.API.Controllers
             return Ok(_services.AddNewQuazi(quazi).Data);
         }
 
-        [Route("GetQuaziByQuaziId")]
+        [Route("GetQuaziByQuaziId/{id:int}")]
         [HttpGet]
         public IHttpActionResult GetQuaziByQuaziId(int id)
         {
-            return Ok(_services.GetQuaziByQuaziId(id));
+            return Ok(_services.GetQuaziByQuaziId(id).Data);
+        }
+        
+        [Route("QuaziList")]
+        [HttpGet]
+        public IHttpActionResult QuaziList()
+        {
+            return Ok(_services.QuaziList().Data);
         }
     }
 }

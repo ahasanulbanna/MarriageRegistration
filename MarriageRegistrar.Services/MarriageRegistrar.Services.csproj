@@ -74,18 +74,18 @@
     <Compile Include="Admin_Services\AdminServices.cs" />
     <Compile Include="Divorce_Services\DivorceServices.cs" />
     <Compile Include="Divorce_Services\DivorceWitnessServices.cs" />
-    <Compile Include="Dtoes\MarriageRegistrarDto.cs" />
+    <Compile Include="Dtoes\MarriageDto.cs" />
     <Compile Include="EntityService.cs" />
-    <Compile Include="Marriage_Services\AttornyServices.cs" />
-    <Compile Include="Marriage_Services\CoupleServices.cs" />
+    <Compile Include="Investigation_Services\InvestigationServices.cs" />
     <Compile Include="Marriage_Services\MarriageServices.cs" />
-    <Compile Include="Marriage_Services\MarriageWitnessServices.cs" />
-    <Compile Include="Marriage_Services\MouloviServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quazi_Services\QuaziServices.cs" />
     <Compile Include="Services_NID\NidServices.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AdminDashboard_Services\" />
+    <Folder Include="QuaziDashboard_Services\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarriageRegistrar.Common\MarriageRegistrar.Common.csproj">
       <Project>{BA6D3ACE-24FC-4035-AB41-03B117318C0A}</Project>

@@ -1,9 +1,9 @@
-﻿CCDApp.factory("logInServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+﻿MRApp.factory("logInServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
     return {
 
         LogIn: function (param) {
             return $http({
-                url: "/Api/Authenticate/LogIn",
+                url: "/Api/Authentication/Login",
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -12,7 +12,7 @@
                 data: param,
                 async: false
             });
-        },
+        }
 
     };
 }]);

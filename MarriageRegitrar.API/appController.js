@@ -1,5 +1,5 @@
 ﻿/// <reference path="app.js" />
-CCDApp.controller('appController', function ($scope, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, $state) {
+MRApp.controller('appController', function ($scope, $rootScope, appServices, $cookies, blockUI, $window, $q, toastr, $compile, $timeout, $state) {
     //====================================================================Declaration=================================================================================
     $scope.Date = "2018/12/05";
 
@@ -37,22 +37,22 @@ CCDApp.controller('appController', function ($scope, $rootScope, appServices, $c
 
 
     //====================================================================DB Operation================================================================================
-    appServices.GetTimeTableDetails().then(function (response) {
-        $scope.Current = response.data.Current;
-        $scope.ComingSoon = response.data.ComingSoon;
-        if ($scope.Current != null) {
-            $scope.Current.Start = new Date(response.data.Current.Start).getTime();
-            $scope.Current.End = new Date(response.data.Current.End).getTime();
-        }
-        if ($scope.ComingSoon != null) {
+    //appServices.GetTimeTableDetails().then(function (response) {
+    //    $scope.Current = response.data.Current;
+    //    $scope.ComingSoon = response.data.ComingSoon;
+    //    if ($scope.Current != null) {
+    //        $scope.Current.Start = new Date(response.data.Current.Start).getTime();
+    //        $scope.Current.End = new Date(response.data.Current.End).getTime();
+    //    }
+    //    if ($scope.ComingSoon != null) {
             
-            $scope.ComingSoon.End = new Date(response.data.ComingSoon.End).getTime();
-            $scope.ComingSoon.Start = new Date(response.data.ComingSoon.Start).getTime();
-        }
-    });
-    appServices.GetCurrentCCDRate().then(function (response) {
-        $scope.Rate = response.data;
-    });
+    //        $scope.ComingSoon.End = new Date(response.data.ComingSoon.End).getTime();
+    //        $scope.ComingSoon.Start = new Date(response.data.ComingSoon.Start).getTime();
+    //    }
+    //});
+    //appServices.GetCurrentCCDRate().then(function (response) {
+    //    $scope.Rate = response.data;
+    //});
 
 
 

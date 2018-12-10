@@ -1,4 +1,4 @@
-﻿CCDApp.factory("homeServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
+﻿MRApp.factory("homeServices", ["$http", "$rootScope", "$window", function ($http, $rootScope, $window) {
     return {
         GetNumberOfRegisteredClients: function () {
             return $http({

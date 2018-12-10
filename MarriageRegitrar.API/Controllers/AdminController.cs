@@ -8,8 +8,8 @@ namespace MarriageRegitrar.API.Controllers
     {
         private readonly IAdminServices _services;
 
-        //constructor
-            public AdminController()
+       
+        public AdminController()
         {
             _services=new AdminServices();
         }

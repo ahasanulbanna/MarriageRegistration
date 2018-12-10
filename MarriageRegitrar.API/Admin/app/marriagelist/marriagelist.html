@@ -1,160 +1,50 @@
-﻿<!-- left-sidebar -->
-<div ng-include="'appTemplate/left-sidebar.html'"></div>
+﻿
 <!-- page-header -->
 <div ng-include="'appTemplate/page-header.html'"></div>
 
 
-<div class="content">
+<div class="content" style="margin-top: 51px;">
     <!-- content HEADER -->
+    <div class="content" style="margin-top: 51px;">
+        <!-- content HEADER -->
+        <div class="container">
+            <div class="panel" data-ng-controller="quaziController">
+                <div class="panel-heading border">
+                    <h2>
+                        Marriage List
+                    </h2>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Nid Number</th>
+                                <th>Registrar Number</th>
+                                <th>Address</th>
+                                <th>Password</th>
+                                <th class="custom-datatabel-action-th">Action</th>
 
-    <div class="content-header">
-        <!-- leftside content header -->
-        <div class="leftside-content-header">
-            <ul class="breadcrumbs">
-                <li><i class="fa fa-dashboard" aria-hidden="true"></i><a ui-sref="home">Dashboard</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-    <div class="animated fadeInUp">
-        <div class="row">
-
-            <div class="col-sm-12 col-lg-12">
-                <!--Customer, Free Coin Submission AND YouTube Bounty Submission-->
-                <div class="row">
-                    <!--Customer-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="registeredclient">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-group color-darker-1" style="font-size:40px">
-
-                                            </span>
-                                        </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total Quazi</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{TotalCustomer}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Online</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{OnlineCustomer}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Offline</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{OfflineCustomer}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <!--Air-Drop Submission-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="airdropcoinclaimresult">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-flash  color-darker-1" style="font-size:40px">
-                                            </span>
-                                        </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total MArriage</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Total}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Rejected}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <!--YouTube Bounty Submission-->
-                    <div class="col-sm-12 col-lg-4 block2sForLabel">
-                        <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="youtubebountyclaimresult">
-                                <div class="panel-content" style="min-height:208px">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <span class="icon fa fa-youtube-square  color-darker-1" style="font-size:40px">
-                                            </span>
-                                        </div>
-                                        <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total Divorce</h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Total}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Rejected}}</span></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="n in data">
+                                <td>{{n.Name}}</td>
+                                <td>{{n.NidNo}}</td>
+                                <td>{{n.RegistrationNo}}</td>
+                                <td>{{n.Address}}</td>
+                                <td>{{n.Password}}</td>
+                                <td>
+                                    <button style="border:1px solid #02715a; background-color:#ffffff" type="button" tooltip-placement="top" uib-tooltip="{{'View Details'}}" class="btn btn-default" ng-click="openQuaziModal(n.Id);"><img src="Assets_Admin/images/datatables/info.png" width="20" /></button> &nbsp; &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+
 </div>
 
 <style>

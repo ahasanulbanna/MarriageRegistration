@@ -21,6 +21,7 @@ namespace MarriageRegitrar.Models.Models
         public Moulovi Moulovi { get; set; }
         public DateTime MarriageDate { get; set; }
         public string MarriageRegistrationNo { get; set; }
+        public double DowerAmount { get; set; }
         public double MarriageRegistrationFee { get; set; }
     }
 }

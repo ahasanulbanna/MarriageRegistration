@@ -1,17 +1,16 @@
-﻿<!-- left-sidebar -->
-<div ng-include="'appTemplate/left-sidebar.html'"></div>
+﻿
 <!-- page-header -->
 <div ng-include="'appTemplate/page-header.html'"></div>
 
 
-<div class="content">
+<div class="content" style="margin-top: 51px;">
     <!-- content HEADER -->
 
     <div class="content-header">
         <!-- leftside content header -->
         <div class="leftside-content-header">
             <ul class="breadcrumbs">
-                <li><i class="fa fa-dashboard" aria-hidden="true"></i><a ui-sref="home">Dashboard</a></li>
+                <li><i class="fa fa-dashboard" aria-hidden="true"></i><a ui-sref="home">Admin Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -25,12 +24,12 @@
                     <!--Customer-->
                     <div class="col-sm-12 col-lg-4 block2sForLabel">
                         <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="registeredclient">
+                            <a ui-sref="#">
                                 <div class="panel-content" style="min-height:208px">
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <span class="icon fa fa-group color-darker-1" style="font-size:40px">
-
+                                               
                                             </span>
                                         </div>
                                         <div class="col-xs-9">
@@ -43,15 +42,15 @@
                                                 <table class="table table-borderless">
                                                     <tr>
                                                         <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{TotalCustomer}}</span></td>
+                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">104</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td style="padding:2px"><span class="pull-right color-primary">Online</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{OnlineCustomer}}</span></td>
+                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">20</span></td>
                                                     </tr>
                                                     <tr>
                                                         <td style="padding:2px"><span class="pull-right color-primary">Offline</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{OfflineCustomer}}</span></td>
+                                                        <td style="padding:2px; width:15%"><span class="badge b-straight" style="padding:2px 5px; margin-bottom:3px">80</span></td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -66,15 +65,16 @@
                     <!--Air-Drop Submission-->
                     <div class="col-sm-12 col-lg-4 block2sForLabel">
                         <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="airdropcoinclaimresult">
+                            <a ui-sref="#">
                                 <div class="panel-content" style="min-height:208px">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <span class="icon fa fa-flash  color-darker-1" style="font-size:40px">
+                                            <span class="icon color-darker-1" style="font-size:40px">
+                                                <img src="../../../image/MarriageRegistrarLogo.png" style="border-radius: 100%; width: 43px;"/>
                                             </span>
                                         </div>
                                         <div class="col-xs-9">
-                                            <h4 class="title color-primary" style="font-size:20px">Total MArriage</h4>
+                                            <h4 class="title color-primary" style="font-size:20px">Total Marriage</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -83,20 +83,9 @@
                                                 <table class="table table-borderless">
                                                     <tr>
                                                         <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Total}}</span></td>
+                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">10</span></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalAirDropFreeCoinSubmission.Rejected}}</span></td>
-                                                    </tr>
+                                                  
                                                 </table>
                                             </div>
                                         </div>
@@ -110,13 +99,13 @@
                     <!--YouTube Bounty Submission-->
                     <div class="col-sm-12 col-lg-4 block2sForLabel">
                         <div class="panel widgetbox wbox-2 animated zoomIn dashboardbox" style="background-color:white">
-                            <a ui-sref="youtubebountyclaimresult">
+                            <a ui-sref="#">
                                 <div class="panel-content" style="min-height:208px">
                                     <div class="row">
-                                        <div class="col-xs-3">
+                                        <!--<div class="col-xs-3">
                                             <span class="icon fa fa-youtube-square  color-darker-1" style="font-size:40px">
                                             </span>
-                                        </div>
+                                        </div>-->
                                         <div class="col-xs-9">
                                             <h4 class="title color-primary" style="font-size:20px">Total Divorce</h4>
                                         </div>
@@ -127,20 +116,9 @@
                                                 <table class="table table-borderless">
                                                     <tr>
                                                         <td style="padding:2px"><span class="pull-right color-primary">Total</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Total}}</span></td>
+                                                        <td style="padding:2px; width:15%"><span class="badge d3-badge b-straight" style="padding:2px 5px; margin-bottom:3px">05</span></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Processing</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-warning" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Processing}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Approved</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-success" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Approved}}</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="padding:2px"><span class="pull-right color-primary">Rejected</span></td>
-                                                        <td style="padding:2px; width:15%"><span class="badge b-straight x-danger" style="padding:2px 5px; margin-bottom:3px">{{CountOfTotalYouTubeBountySubmission.Rejected}}</span></td>
-                                                    </tr>
+                                                   
                                                 </table>
                                             </div>
                                         </div>

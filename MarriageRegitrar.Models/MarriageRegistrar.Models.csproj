@@ -62,6 +62,18 @@
     <Compile Include="Migrations\201812032128210_Migration_From_Saif_Pc.Designer.cs">
       <DependentUpon>201812032128210_Migration_From_Saif_Pc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812051715431_Migration_From_Saif_PC2.cs" />
+    <Compile Include="Migrations\201812051715431_Migration_From_Saif_PC2.Designer.cs">
+      <DependentUpon>201812051715431_Migration_From_Saif_PC2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812052224131_Migration_From_Saif_PC3.cs" />
+    <Compile Include="Migrations\201812052224131_Migration_From_Saif_PC3.Designer.cs">
+      <DependentUpon>201812052224131_Migration_From_Saif_PC3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812062011229_Migration_For_NidModel.cs" />
+    <Compile Include="Migrations\201812062011229_Migration_For_NidModel.Designer.cs">
+      <DependentUpon>201812062011229_Migration_For_NidModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Attorney.cs" />
@@ -88,6 +100,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812032128210_Migration_From_Saif_Pc.resx">
       <DependentUpon>201812032128210_Migration_From_Saif_Pc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051715431_Migration_From_Saif_PC2.resx">
+      <DependentUpon>201812051715431_Migration_From_Saif_PC2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812052224131_Migration_From_Saif_PC3.resx">
+      <DependentUpon>201812052224131_Migration_From_Saif_PC3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812062011229_Migration_For_NidModel.resx">
+      <DependentUpon>201812062011229_Migration_For_NidModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

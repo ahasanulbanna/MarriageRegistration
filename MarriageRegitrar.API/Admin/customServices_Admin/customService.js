@@ -1,4 +1,4 @@
-﻿CCDApp.factory("customService", ["$http", "$rootScope", "$window", "$timeout", "$cookies", function ($http, $rootScope, $window, $timeout, $cookies) {
+﻿MRApp.factory("customService", ["$http", "$rootScope", "$window", "$timeout", "$cookies", function ($http, $rootScope, $window, $timeout, $cookies) {
     return {
         isLoggedIn: function () {
             var a = $cookies.get('AdminToken');
